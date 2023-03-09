@@ -4,8 +4,7 @@ import os
 from avral.operation import AvralOperation
 from avral.io.types import StringType, FileType
 
-from crossing_borders import crossing_borders, write_to_csv
-
+from .crossing_borders import crossing_borders, write_to_csv
 
 
 class CrossingBorders(AvralOperation):
@@ -27,7 +26,6 @@ class CrossingBorders(AvralOperation):
         data = crossing_borders(self.borders_path, objects_path)
         write_to_csv(data, objects_path)
         self.setOutput(u'csv', objects_path)
-
 
     def _do_work(self):
         self.logger.info(".START processing in cwd: %s" % os.getcwd())
